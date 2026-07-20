@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Luthfi & Lena — Royal Mughal Palace Wedding Invitation</title>
+
+  <!-- SEO & Meta -->
+  <meta name="description" content="You are cordially invited to the Royal Mughal Palace wedding celebrations of Luthfi & Lena. Sunday, 11 October 2026 · Khayaal Palace, Kerala.">
+  <meta name="theme-color" content="#1a0508">
+  <meta property="og:title" content="Luthfi & Lena — Wedding Invitation">
+  <meta property="og:description" content="Join us on Sunday, 11 October 2026 at Khayaal Palace, Kerala.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Alex+Brush&family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+</head>
+<body class="no-scroll">
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/audio/music.mp3" type="audio/mpeg">
+    <source src="data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA" type="audio/wav">
+  </audio>
+
+  <!-- Site-wide Jali Lattice Overlay -->
+  <div class="jali-bg-overlay"></div>
+
+  <!-- Floating Gold Particles -->
+  <div id="particle-container"></div>
+
+  <!-- Fixed Radial Background -->
+  <div class="fixed-bg"></div>
+
+  <!-- Music Toggle -->
+  <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Toggle Background Music">
+    <svg class="music-icon icon-playing" viewBox="0 0 24 24" width="20" height="20">
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="currentColor"/>
+    </svg>
+    <svg class="music-icon icon-muted hidden" viewBox="0 0 24 24" width="20" height="20">
+      <path d="M4.27 3L3 4.27l9 9v.28c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4v-1.73l4.27 4.27 1.27-1.27L4.27 3zM10 19c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm4-12h4V3h-6v3.18l2 2V7z" fill="currentColor"/>
+    </svg>
+    <div class="glow-ring"></div>
+  </button>
+
+  <!-- ══════════════════════════════════════
+       1. OPENING VIDEO OVERLAY
+       ══════════════════════════════════════ -->
+  <div id="envelope-overlay" class="envelope-overlay">
+    <video id="opening-video" src="assets/video/IMG_7133.MOV" preload="auto" autoplay muted playsinline webkit-playsinline></video>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       MAIN SCROLLABLE CONTENT
+       ══════════════════════════════════════ -->
+  <div id="main-content">
+    <div class="max-width-wrapper">
+
+      <!-- ── 2. HERO SECTION ─────────────────── -->
+      <section id="hero-section" class="scroll-section hero-section">
+
+        <!-- Layered Backgrounds -->
+        <div class="hero-bg-base"></div>
+        <div class="hero-bg-transition"></div>
+
+        <!-- Top Badge: Date Pill -->
+        <div class="hero-top-badge">
+          <span class="badge-text">11 · OCT · 2026</span>
+        </div>
+
+        <!-- Central Arch Card -->
+        <div class="hero-arch-container">
+          <div class="hero-arch-outline"></div>
+          <div class="hero-arch-content">
+
+            <!-- Bismillah -->
+            <img src="assets/images/1280px-Bismillah_Calligraphy6.svg.webp"
+                 class="bismillah-img"
+                 alt="Bismillah Calligraphy">
+            <p class="bismillah-translation">
+              In the name of Allah,<br>the Most Gracious, the Most Merciful
+            </p>
+
+            <!-- Top Divider -->
+            <div class="hero-divider">
+              <svg viewBox="0 0 120 16" class="divider-svg" preserveAspectRatio="none">
+                <path d="M5,8 L48,8 C50,6 52,6 54,8 C56,6 58,6 60,8 C62,6 64,6 66,8 L72,8 L115,8" fill="none" stroke="currentColor" stroke-width="0.8"/>
+                <polygon points="60,3 63,8 60,13 57,8" fill="currentColor"/>
+                <circle cx="54" cy="8" r="1.2" fill="currentColor"/>
+                <circle cx="66" cy="8" r="1.2" fill="currentColor"/>
+              </svg>
+            </div>
+
+            <!-- Initials -->
+            <div class="hero-initials">L &amp; L</div>
+
+            <!-- Middle Divider -->
+            <div class="hero-divider">
+              <svg viewBox="0 0 120 16" class="divider-svg" preserveAspectRatio="none">
+                <path d="M5,8 L48,8 C50,6 52,6 54,8 C56,6 58,6 60,8 C62,6 64,6 66,8 L72,8 L115,8" fill="none" stroke="currentColor" stroke-width="0.8"/>
+                <polygon points="60,3 63,8 60,13 57,8" fill="currentColor"/>
+                <circle cx="54" cy="8" r="1.2" fill="currentColor"/>
+                <circle cx="66" cy="8" r="1.2" fill="currentColor"/>
+              </svg>
+            </div>
+
+            <!-- Names -->
+            <div class="hero-couple-names">
+              <span class="hero-couple-name">Luthfi</span>
+              <span class="hero-couple-ampersand">&amp;</span>
+              <span class="hero-couple-name">Lena</span>
+            </div>
+
+            <!-- Bottom Divider -->
+            <div class="hero-divider-small">
+              <svg viewBox="0 0 80 14" class="divider-svg" preserveAspectRatio="none">
+                <path d="M4,7 L32,7 M48,7 L76,7" stroke="currentColor" stroke-width="0.8" fill="none"/>
+                <polygon points="40,3 44,7 40,11 36,7" fill="currentColor"/>
+              </svg>
+            </div>
+
+          </div><!-- /hero-arch-content -->
+        </div><!-- /hero-arch-container -->
+
+        <!-- Scroll Cue -->
+        <div class="scroll-cue">
+          <svg class="scroll-arrow" viewBox="0 0 24 24" width="22" height="22">
+            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="currentColor"/>
+          </svg>
+          <span class="eyebrow-text">Scroll to reveal</span>
+        </div>
+
+      </section><!-- /hero-section -->
+
+      <!-- Details Container (revealed on scroll) -->
+      <div id="details-content" class="details-content">
+
+        <!-- ══ SNAP DECK: card / nikkah / couple ══
+             This fixed panel slides between sections 0-2.
+             #closing-section lives outside this deck. -->
+        <div id="snap-deck">
+
+        <!-- ── 3. SCROLL / WEDDING CARD SECTION ── -->
+        <section id="wedding-card-section" class="scroll-section wedding-card-section">
+          <div class="scroll-entry-wrapper">
+            <p class="tap-cue-text font-serif garamond-italic">
+              Tap the scroll below to open invitation
+            </p>
+            <button id="open-card-btn" class="open-card-btn" aria-label="Open Wedding Invitation Card">
+              <img src="assets/images/scroll-stamped.png" class="scroll-stamped-img" alt="Royal Wedding Scroll">
+              <div class="seal-glow-ring"></div>
+            </button>
+          </div>
+        </section>
+
+        <!-- ── 5. NIKKAH CEREMONY SECTION ──────── -->
+        <section id="schedule-section" class="scroll-section schedule-section">
+
+          <!-- Floating petals -->
+          <span class="petal p1">❀</span>
+          <span class="petal p2">✿</span>
+          <span class="petal p3">❀</span>
+          <span class="petal p4">✿</span>
+          <span class="petal p5">❀</span>
+
+          <!-- Section Heading -->
+          <div class="section-header-box">
+            <p class="section-title">Nikkah Ceremony</p>
+            <div class="gold-divider-small"></div>
+          </div>
+
+          <!-- Royal Date Frame -->
+          <div class="royal-date-container">
+            <div class="royal-arch-frame">
+              <div class="royal-day">S &nbsp; U &nbsp; N &nbsp; D &nbsp; A &nbsp; Y</div>
+              <div class="royal-date-number">11</div>
+              <div class="royal-month-year">O C T O B E R &nbsp;·&nbsp; 2 0 2 6</div>
+
+              <!-- Ornamental SVG Divider -->
+              <div class="royal-frame-divider">
+                <svg viewBox="0 0 120 10" class="frame-divider-svg" preserveAspectRatio="none">
+                  <path d="M5,5 L50,5 M70,5 L115,5" stroke="rgba(232,200,116,0.6)" stroke-width="0.8" fill="none"/>
+                  <polygon points="60,1 65,5 60,9 55,5" fill="rgba(201,162,39,0.9)"/>
+                  <circle cx="50" cy="5" r="1" fill="rgba(232,200,116,0.6)"/>
+                  <circle cx="70" cy="5" r="1" fill="rgba(232,200,116,0.6)"/>
+                </svg>
+              </div>
+
+              <div class="royal-time">11:00 AM</div>
+              <div class="royal-venue font-serif">Khayaal Palace Convention Centre</div>
+
+              <button class="ceremony-btn"
+                onclick="openCalendarModal('Nikkah Ceremony','2026-10-11T11:00:00','2026-10-11T15:00:00','Join us for the Nikkah Ceremony of Luthfi &amp; Lena','Khayaal Palace convention centre, Mankada, Kerala')">
+                Add to Calendar
+              </button>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ── 5b. THE COUPLE SECTION ────────── -->
+        <section id="couple-section" class="scroll-section couple-section">
+          <span class="petal pc1">✿</span>
+          <span class="petal pc2">❀</span>
+          <span class="petal pc3">✿</span>
+
+          <div class="section-header-box">
+            <p class="section-title">The Couple</p>
+            <div class="gold-divider-small"></div>
+          </div>
+
+          <div class="couple-card-container">
+            <div class="couple-box">
+
+              <!-- Groom -->
+              <div class="couple-profile">
+                <h3 class="couple-title font-serif">Luthfi</h3>
+                <p class="parent-details garamond-italic">Son of Mr. Muhammad &amp; Mrs. Amina</p>
+              </div>
+
+              <!-- & Divider -->
+              <div class="couple-ampersand-divider">
+                <span class="ampersand-char">&amp;</span>
+              </div>
+
+              <!-- Bride -->
+              <div class="couple-profile">
+                <h3 class="couple-title font-serif">Lena</h3>
+                <p class="parent-details garamond-italic">Daughter of Mr. A. B. S. &amp; Mrs. F. H. G.</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        </div><!-- /snap-deck -->
+
+        <!-- ── 6+7. CLOSING / VENUE SECTION ──── -->
+        <section id="closing-section" class="cream-section">
+
+        <!-- ══ COUNTDOWN TO THE BIG DAY ══ -->
+          <div class="countdown-block">
+            <p class="countdown-label-top">Counting Down To</p>
+            <p class="countdown-wedding-title">Our Wedding Day</p>
+            <div class="countdown-grid" id="countdown-grid">
+              <div class="cd-unit">
+                <div class="cd-flip-box">
+                  <span class="cd-number" id="cd-days">00</span>
+                </div>
+                <span class="cd-label">Days</span>
+              </div>
+              <div class="cd-unit">
+                <div class="cd-flip-box">
+                  <span class="cd-number" id="cd-hours">00</span>
+                </div>
+                <span class="cd-label">Hours</span>
+              </div>
+              <div class="cd-unit">
+                <div class="cd-flip-box">
+                  <span class="cd-number" id="cd-minutes">00</span>
+                </div>
+                <span class="cd-label">Minutes</span>
+              </div>
+              <div class="cd-unit">
+                <div class="cd-flip-box">
+                  <span class="cd-number" id="cd-seconds">00</span>
+                </div>
+                <span class="cd-label">Seconds</span>
+              </div>
+            </div>
+            <p class="countdown-date-pill">11 · October · 2026 &nbsp;|&nbsp; 11:00 AM</p>
+          </div>
+
+          <!-- Divider between countdown and map -->
+          <div class="cream-divider"></div>
+
+          <!-- Compact Venue Card -->
+
+          <div class="venue-card-compact">
+            <div class="venue-map-compact">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.4048816370773!2d76.17961597509192!3d11.008218389154962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7cd0009f46127%3A0x71799e8d19525dc4!2sKhayaal%20Palace%20convention%20centre!5e0!3m2!1sen!2sin!4v1784351157600!5m2!1sen!2sin"
+                width="100%" height="100%"
+                style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin">
+              </iframe>
+            </div>
+            <div class="venue-info-compact">
+              <h3 class="venue-name-compact">Khayaal Palace Convention Centre</h3>
+              <p class="venue-address-compact">Mankada, Kerala 679324</p>
+              <div class="venue-btns-compact">
+                <a href="https://maps.app.goo.gl/e11PYDuXWskLJ4DZ8"
+                   target="_blank" rel="noopener" class="cream-btn">View Map</a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=11.008218,76.179616"
+                   target="_blank" rel="noopener" class="cream-btn cream-btn-outline">Directions</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="cream-divider"></div>
+
+          <!-- Thank You -->
+          <div class="closing-card">
+            <p class="closing-thank-you">Thank You</p>
+            <p class="closing-message">
+              We look forward to celebrating<br>this special day with you.
+            </p>
+            <div class="closing-names">Luthfi &amp; Lena</div>
+            <div class="closing-details">
+              <span>11 October 2026</span>
+              <span class="closing-dot">·</span>
+              <span>11:00 AM</span>
+              <span class="closing-dot">·</span>
+              <span>Khayaal Palace</span>
+            </div>
+            <button id="share-invite-btn" class="cream-share-btn">Share the Joy</button>
+          </div>
+
+          <p class="cream-credits">© 2026 Luthfi &amp; Lena Wedding</p>
+        </section>
+
+      </div><!-- /details-content -->
+    </div><!-- /max-width-wrapper -->
+  </div><!-- /main-content -->
+
+  <!-- Calendar Modal -->
+  <div id="calendar-modal" class="modal-overlay hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <h3 class="modal-title font-serif">Add to Calendar</h3>
+      <p class="modal-event-info" id="modal-event-name"></p>
+      <div class="modal-actions">
+        <a id="google-cal-link" href="#" target="_blank" rel="noopener" class="modal-btn">Google Calendar</a>
+        <button onclick="downloadIcsFile()" class="modal-btn">Apple / Outlook (.ics)</button>
+      </div>
+      <button onclick="closeCalendarModal()" class="btn-text close-modal-btn">Close</button>
+    </div>
+  </div>
+
+  <!-- Share Toast -->
+  <div id="share-toast" class="share-toast hidden">Link copied to clipboard!</div>
+
+  <!-- Wedding Card Modal -->
+  <div id="card-modal" class="card-modal hidden">
+    <div class="card-modal-overlay"></div>
+    <div class="card-modal-content">
+      <button class="card-modal-close" aria-label="Close Invitation">&times;</button>
+      <div class="golden-card-frame">
+        <img src="assets/images/Card.png" class="wedding-card-img" alt="Luthfi & Lena Wedding Invitation Card">
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
