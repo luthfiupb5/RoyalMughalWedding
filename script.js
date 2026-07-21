@@ -12,24 +12,24 @@ function createParticles() {
   for (let i = 0; i < particleCount; i++) {
     const particle = document.createElement('div');
     particle.className = 'particle';
-    
+
     // Randomized initial properties
     const size = Math.random() * 5 + 3; // 3px to 8px
     const startX = Math.random() * 100; // 0% to 100% width
     const startY = Math.random() * 100; // Distribute vertically across viewport initially
     const maxOpacity = Math.random() * 0.6 + 0.3; // 0.3 to 0.9
-    
+
     particle.style.width = `${size}px`;
     particle.style.height = `${size}px`;
     particle.style.left = `${startX}%`;
     particle.style.top = `${startY}%`;
     particle.style.opacity = 0; // Start invisible, fade in
-    
+
     container.appendChild(particle);
-    
+
     // Elegant float animation using GSAP timeline
     const duration = Math.random() * 8 + 12; // 12s to 20s (slow & premium)
-    
+
     gsap.timeline({ repeat: -1 })
       .to(particle, {
         opacity: maxOpacity,
@@ -157,7 +157,7 @@ function transitionToHero() {
 // Play transition once video playback completes
 if (openingVideo) {
   openingVideo.addEventListener('ended', transitionToHero);
-  
+
   // Programmatically trigger play immediately to minimize initial black frame / load delay
   openingVideo.play().catch(err => {
     console.warn("Muted autoplay triggered programmatically, handled fallback:", err);
@@ -208,7 +208,7 @@ if (musicToggleBtn && bgMusic) {
    ========================================== */
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll('.scroll-section');
-  
+
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -258,9 +258,9 @@ function openCalendarModal(title, startISO, endISO, description, location) {
   // Format details specifically for Google Calendar Template links
   const gStart = formatGoogleDate(new Date(startISO));
   const gEnd = formatGoogleDate(new Date(endISO));
-  
+
   const gUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${gStart}/${gEnd}&details=${encodeURIComponent(description)}&location=${encodeURIComponent(location)}`;
-  
+
   if (googleCalLink) {
     googleCalLink.setAttribute('href', gUrl);
   }
@@ -304,14 +304,14 @@ END:VCALENDAR`;
   const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8;' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
-  
+
   link.href = url;
   link.setAttribute('download', `${currentEvent.title.replace(/\s+/g, '_')}.ics`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
-  
+
   closeCalendarModal();
 }
 
@@ -329,13 +329,13 @@ if (shareInviteBtn) {
   shareInviteBtn.addEventListener('click', () => {
     if (navigator.share) {
       navigator.share({
-        title: 'Luthfi & Lena Wedding Invitation',
-        text: 'You are cordially invited to the wedding celebrations of Luthfi and Lena.',
+        title: 'Yousuf & Ayisha Wedding Invitation',
+        text: 'You are cordially invited to the wedding celebrations of Yousuf and Ayisha.',
         url: window.location.href
       })
-      .catch((err) => {
-        console.log("Error sharing:", err);
-      });
+        .catch((err) => {
+          console.log("Error sharing:", err);
+        });
     } else {
       // Fallback: Copy URL to clipboard
       navigator.clipboard.writeText(window.location.href)
@@ -353,7 +353,7 @@ function showToast() {
   if (!shareToast) return;
   shareToast.classList.remove('hidden');
   shareToast.classList.add('show');
-  
+
   setTimeout(() => {
     shareToast.classList.remove('show');
     setTimeout(() => {
@@ -368,21 +368,21 @@ function showToast() {
 document.addEventListener("DOMContentLoaded", () => {
   const openCardBtn = document.getElementById('open-card-btn');
   const cardModal = document.getElementById('card-modal');
-  
+
   if (openCardBtn && cardModal) {
     const closeBtn = cardModal.querySelector('.card-modal-close');
     const overlay = cardModal.querySelector('.card-modal-overlay');
-    
+
     const openModal = () => {
       cardModal.classList.remove('hidden');
       document.body.classList.add('modal-open');
     };
-    
+
     const closeModal = () => {
       cardModal.classList.add('hidden');
       document.body.classList.remove('modal-open');
     };
-    
+
     openCardBtn.addEventListener('click', openModal);
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
     if (overlay) overlay.addEventListener('click', closeModal);
@@ -395,15 +395,15 @@ document.addEventListener("DOMContentLoaded", () => {
    ========================================== */
 (function () {
   /* ── State ── */
-  let isHeroActive  = true;
-  let isAnimating   = false;
+  let isHeroActive = true;
+  let isAnimating = false;
   let currentScreen = 0; // 0=card 1=nikkah 2=couple 3=closing
-  let touchStartY   = 0;
-  const DURATION    = 0.82;
-  const EASE        = 'power3.inOut';
+  let touchStartY = 0;
+  const DURATION = 0.82;
+  const EASE = 'power3.inOut';
 
   /* ── Element refs ── */
-  const deck    = document.getElementById('snap-deck');
+  const deck = document.getElementById('snap-deck');
   const closing = document.getElementById('closing-section');
 
   /* Section order inside snap-deck */
@@ -446,7 +446,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (closing) closing.classList.remove('visible');
 
-    const dir      = targetIdx > currentScreen ? 1 : -1; // 1=down -1=up
+    const dir = targetIdx > currentScreen ? 1 : -1; // 1=down -1=up
     const outgoing = snapSections[currentScreen];
     const incoming = snapSections[targetIdx];
 
@@ -456,7 +456,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tl = gsap.timeline({
       onComplete: () => {
         currentScreen = targetIdx;
-        isAnimating   = false;
+        isAnimating = false;
         animateIn(incoming, 0.1);
       }
     });
@@ -464,7 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Outgoing slides out
     tl.to(outgoing, { y: dir > 0 ? '-100%' : '100%', duration: DURATION, ease: EASE }, 0);
     // Incoming slides in
-    tl.to(incoming, { y: '0%',                        duration: DURATION, ease: EASE }, 0);
+    tl.to(incoming, { y: '0%', duration: DURATION, ease: EASE }, 0);
   }
 
   /* ── Reveal closing section (screen 3) ── */
@@ -482,7 +482,7 @@ document.addEventListener("DOMContentLoaded", () => {
           ease: EASE,
           onComplete: () => {
             currentScreen = 3;
-            isAnimating   = false;
+            isAnimating = false;
             // Enable body scroll so closing section is reachable
             document.body.classList.remove('no-scroll');
             window.scrollTo(0, 0);
@@ -508,7 +508,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ease: EASE,
         onComplete: () => {
           currentScreen = 2;
-          isAnimating   = false;
+          isAnimating = false;
           closing.classList.remove('visible');
           gsap.set(closing, { y: '0px' });
         }
@@ -527,15 +527,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     gsap.timeline({
       onComplete: () => {
-        isHeroActive  = false;
+        isHeroActive = false;
         currentScreen = 0;
-        isAnimating   = false;
+        isAnimating = false;
         document.body.classList.add('no-scroll');
         animateIn(snapSections[0], 0.15);
       }
     })
-    .to('#hero-section', { yPercent: -100, duration: 1.1, ease: 'power3.inOut' }, 0)
-    .to(deck,            { y: '0px',       duration: 1.0, ease: 'power3.out'   }, 0.05);
+      .to('#hero-section', { yPercent: -100, duration: 1.1, ease: 'power3.inOut' }, 0)
+      .to(deck, { y: '0px', duration: 1.0, ease: 'power3.out' }, 0.05);
   };
 
   /* ── Slide hero back down (swipe up on card section) ── */
@@ -550,37 +550,37 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.timeline({
       onComplete: () => {
         isHeroActive = true;
-        isAnimating  = false;
+        isAnimating = false;
         document.body.classList.remove('no-scroll');
       }
     })
-    .to('#hero-section', { yPercent: 0,     duration: 1.1, ease: 'power3.inOut' }, 0)
-    .to(deck,            { y: '100vh',      duration: 1.0, ease: 'power3.inOut' }, 0);
+      .to('#hero-section', { yPercent: 0, duration: 1.1, ease: 'power3.inOut' }, 0)
+      .to(deck, { y: '100vh', duration: 1.0, ease: 'power3.inOut' }, 0);
   };
 
   /* ── Scroll direction handler ── */
   function handleDown() {
-    if (isHeroActive)          { slideHeroUp();  return; }
-    if (currentScreen === 0)   { goToSnap(1);    return; }
-    if (currentScreen === 1)   { goToSnap(2);    return; }
-    if (currentScreen === 2)   { openClosing();  return; }
+    if (isHeroActive) { slideHeroUp(); return; }
+    if (currentScreen === 0) { goToSnap(1); return; }
+    if (currentScreen === 1) { goToSnap(2); return; }
+    if (currentScreen === 2) { openClosing(); return; }
   }
 
   function handleUp() {
     if (isHeroActive) return;
     const currentScrollY = window.scrollY || document.documentElement.scrollTop || 0;
     if (currentScreen === 3 && currentScrollY > 10) return; // mid-scroll in closing
-    if (currentScreen === 3)   { closeClosing(); return; }
-    if (currentScreen === 2)   { goToSnap(1);    return; }
-    if (currentScreen === 1)   { goToSnap(0);    return; }
-    if (currentScreen === 0)   { slideHeroDown(); return; }
+    if (currentScreen === 3) { closeClosing(); return; }
+    if (currentScreen === 2) { goToSnap(1); return; }
+    if (currentScreen === 1) { goToSnap(0); return; }
+    if (currentScreen === 0) { slideHeroDown(); return; }
   }
 
   /* ── Wheel events (desktop) ── */
   window.addEventListener('wheel', (e) => {
     if (!hasTransitioned || isAnimating) return;
     if (currentScreen === 3 && e.deltaY > 0) return; // let closing scroll naturally
-    if (e.deltaY >  5) handleDown();
+    if (e.deltaY > 5) handleDown();
     if (e.deltaY < -5) handleUp();
   }, { passive: true });
 
@@ -593,7 +593,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!hasTransitioned || isAnimating) return;
     const delta = touchStartY - e.changedTouches[0].clientY;
     if (currentScreen === 3 && delta > 0) return; // let closing scroll naturally
-    if (delta >  30) handleDown();
+    if (delta > 30) handleDown();
     if (delta < -30) handleUp();
   }, { passive: true });
 
@@ -630,11 +630,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Wedding: 11 October 2026, 11:00 AM IST (UTC+5:30)
   const WEDDING_DATE = new Date('2026-10-11T11:00:00+05:30');
 
-  const elDays    = document.getElementById('cd-days');
-  const elHours   = document.getElementById('cd-hours');
+  const elDays = document.getElementById('cd-days');
+  const elHours = document.getElementById('cd-hours');
   const elMinutes = document.getElementById('cd-minutes');
   const elSeconds = document.getElementById('cd-seconds');
-  const grid      = document.getElementById('countdown-grid');
+  const grid = document.getElementById('countdown-grid');
 
   if (!elDays || !elHours || !elMinutes || !elSeconds) return;
 
@@ -655,7 +655,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function tick() {
-    const now  = new Date();
+    const now = new Date();
     const diff = WEDDING_DATE - now;
 
     if (diff <= 0) {
@@ -667,13 +667,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const totalSeconds = Math.floor(diff / 1000);
-    const days    = Math.floor(totalSeconds / 86400);
-    const hours   = Math.floor((totalSeconds % 86400) / 3600);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     const seconds = totalSeconds % 60;
 
-    updateEl(elDays,    days);
-    updateEl(elHours,   hours);
+    updateEl(elDays, days);
+    updateEl(elHours, hours);
     updateEl(elMinutes, minutes);
     updateEl(elSeconds, seconds);
   }
